@@ -1,0 +1,24 @@
+<div class="col">
+    <div class="card shadow-sm">
+      <img [src]="product().image" width="100%" height="auto" alt="">
+      <div class="card-body">
+        <p class="card-title">{{product().title}}</p>
+        <p class="card-text">{{product().description}}</p>
+   
+        <input matInput class="cart-quantity" type="number" [(ngModel)]="quantity" min="0"> 
+
+        <button
+        (click)="onAddToCart()"
+        class="btn btn-success"
+      >
+        Add to cart
+      </button>
+
+      <a
+      class="btn btn-success"
+      [routerLink]="['/products', product().id]"
+    >Details
+      </a>
+      </div>
+    </div>
+  </div>

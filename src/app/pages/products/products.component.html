@@ -1,0 +1,8 @@
+<h2>Listado</h2>
+
+<div class="listado">
+    @for (item of productService.listFiltered(); track item.id) {
+  
+   <app-card [product]="item"></app-card>
+    }
+</div>
