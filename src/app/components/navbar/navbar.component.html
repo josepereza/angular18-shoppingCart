@@ -3,6 +3,9 @@
   <nav class="navbar  navbar-light bg-light">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Navbar</a>
+    
+     
+     
       <a class="nav-link" [routerLink]="['/cart']" routerLinkActive="router-link-active">
        
         <i class="bi bi-cart fs-3"></i>
@@ -13,13 +16,11 @@
      
      
     </a>
-     
-      <form class="d-flex">
-        <input class="form-control" type="search" placeholder="Search" aria-label="Search" [formControl]="search" >
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
-       
     </div>
+    <form class="d-flex ms-2">
+      <input class="form-control" type="search" placeholder="Search" aria-label="Search" [formControl]="search" >
+      <a class="btn btn-outline-success" routerLink="/products">Search</a>
+    </form>
    
   </nav>
  

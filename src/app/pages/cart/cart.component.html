@@ -1,5 +1,5 @@
 <div>
-    <h1>My Cart</h1>
+    <h1>My Cart Shop</h1>
   
     @if (cart.length === 0) {
       <p>Your cart is empty.</p>
@@ -16,15 +16,19 @@
             </div>
           </mat-list-item> -->
 
-          <div class="card">
-            <div class="card-body">
-             <span>{{cartItem.product.title}}  ({{ cartItem.quantity }})</span>
+          <div class="card ">
+            <div >
+             <p>{{cartItem.product.title}}  ({{ cartItem.quantity }})</p>
+            </div>
+            <div>
+              <img [src]="cartItem.product.image" width="50px" height="auto" alt="">
+              <h4>Price: {{cartItem.product.price}}</h4>
             </div>
           </div>
         }
       </div>
       <div class="cart-total">
-        <div>Total: {{ cartTotal() | currency }}</div>
+        <h2>Total: {{ cartTotal() | currency }}</h2>
         <button mat-raised-button color="primary">Checkout</button>
       </div>
     }
