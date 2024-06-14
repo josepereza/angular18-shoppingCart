@@ -4,29 +4,30 @@
     @if (cart.length === 0) {
       <p>Your cart is empty.</p>
     } @else {
-      <div class="cart-list">
-        @for (cartItem of cart; track cartItem) {
-         <!--  <mat-list-item class="cart-item">
-            <div matListItemTitle>{{ cartItem.product.name }} ({{ cartItem.quantity }})</div>
-            <div matListItemLine>{{ cartItem.product.price | currency }}</div>
-            <mat-icon matListItemIcon class="icon-button" (click)="removeFromCart(cartItem.product.id)">close</mat-icon>
-            <div matListItemIcon>
-              <mat-icon class="icon-button" color="primary" (click)="updateProductQuantity(cartItem.product.id, cartItem.quantity + 1)">add</mat-icon>
-              <mat-icon class="icon-button" color="primary" (click)="updateProductQuantity(cartItem.product.id, cartItem.quantity - 1)">remove</mat-icon>
-            </div>
-          </mat-list-item> -->
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Qty</th>
+            <th scope="col">Image</th>
+            <th scope="col">Action</th>
 
-          <div class="card ">
-            <div >
-             <p>{{cartItem.product.title}}  ({{ cartItem.quantity }})</p>
-            </div>
-            <div>
-              <img [src]="cartItem.product.image" width="50px" height="auto" alt="">
-              <h4>Price: {{cartItem.product.price}}</h4>
-            </div>
-          </div>
+          </tr>
+        </thead>
+        <tbody>
+        @for (cartItem of cart; track cartItem) {
+          <tr>
+            <td>{{cartItem.product.id}}</td>
+            <th>{{cartItem.product.title}}</th>
+            <td>{{cartItem.quantity}}</td>
+            <td> <img [src]="cartItem.product.image" class="d-block mx-auto img-fluid" alt="Bootstrap Themes" width="50" loading="lazy">
+            </td>
+            <td>Borrar</td>
+          </tr>
         }
-      </div>
+      </tbody>
+    </table>
       <div class="cart-total">
         <h2>Total: {{ cartTotal() | currency }}</h2>
         <button mat-raised-button color="primary">Checkout</button>

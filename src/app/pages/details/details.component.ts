@@ -12,7 +12,9 @@ import { CurrencyPipe } from '@angular/common';
   styleUrl: './details.component.css'
 })
 export default class DetailsComponent implements OnInit {
+  //@Input() id!: number;
   id  = input.required<number>();    // Signal<number>
+  
   productoService=inject(ProductService)
   producto!:Signal<Product | undefined>
   injector=inject(Injector)
