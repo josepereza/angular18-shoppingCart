@@ -35,4 +35,9 @@ export class ProductService {
       });
     return this.productos$();
   });
+
+  getProductById(id:number){
+    return    this.http
+    .get<Product[]>(`${this.apiURL}/products/${id}`)
+  }
 }

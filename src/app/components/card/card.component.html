@@ -3,8 +3,12 @@
       <img [src]="product().image" width="100%" height="auto" alt="">
       <div class="card-body">
         <p class="card-title">{{product().title}}</p>
-        <p class="card-text">{{product().description}}</p>
-   
+      
+        <br>
+        <span class="display-6">
+         {{product().price | currency}}
+        </span>
+        <br>
         <input matInput class="cart-quantity" type="number" [(ngModel)]="quantity" min="0"> 
 
         <button
@@ -16,7 +20,7 @@
 
       <a
       class="btn btn-success"
-      [routerLink]="['/products', product().id]"
+      [routerLink]="['/details', product().id]"
     >Details
       </a>
       </div>

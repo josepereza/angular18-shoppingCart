@@ -5,7 +5,7 @@ export const routes: Routes = [
         path:'products', loadComponent:()=> import('./pages/products/products.component')
     },
     {
-        path:'details', loadComponent:()=> import('./pages/details/details.component')
+        path:'details/:id', loadComponent:()=> import('./pages/details/details.component')
     },
     {
         path:'cart', loadComponent:()=> import ('./pages/cart/cart.component')

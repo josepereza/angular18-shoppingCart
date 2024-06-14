@@ -1,6 +1,10 @@
 # Angular18ShoppingCart
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.2.
+![images](tienda1.png)
+![images](tienda2.png)
+![images](tienda3.png)
+
 
 ## Development server
 

@@ -3,11 +3,12 @@ import { Product } from '../../interfaces/product';
 import { CartService } from '../../services/cart.service';
 import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'app-card',
   standalone: true,
-  imports: [RouterLink,  FormsModule],
+  imports: [RouterLink,  FormsModule, CurrencyPipe],
   templateUrl: './card.component.html',
   styleUrl: './card.component.css'
 })

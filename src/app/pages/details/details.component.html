@@ -1,1 +1,24 @@
-<p>details works!</p>
+
+<div class="container">
+    <h3>Details Product</h3>
+    <div class="row flex-sm-row-reverse align-items-center g-5 py-5">
+        <div class="col-sm-12 col-md-6 text-center">
+            <div class="card border-success mb-3 mx-auto" style="max-width: 18rem;">
+                <div class="card-header bg-transparent border-success">{{producto()?.title}}</div>
+                <div class="card-body text-success">
+                  <h5 class="card-title">{{producto()?.category}}</h5>
+                  <p class="card-text">{{producto()?.description}}</p>
+                </div>
+                <div class="card-footer bg-transparent border-success display-5">{{producto()?.price | currency }}</div>
+              </div>
+        </div>
+        <div class="col-sm-12 col-md-6 text-center ">
+            <img [src]="producto()?.image" class="d-block mx-auto img-fluid" alt="Bootstrap Themes" width="300" loading="lazy">
+
+        </div>
+    </div>
+   
+</div>
+
+
+
