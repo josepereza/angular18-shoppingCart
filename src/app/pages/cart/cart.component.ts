@@ -1,19 +1,25 @@
-import { Component, computed, inject } from '@angular/core';
+import { Component, Signal, computed, inject, signal } from '@angular/core';
 import { CartService } from '../../services/cart.service';
-import { CurrencyPipe } from '@angular/common';
+import { CurrencyPipe, JsonPipe } from '@angular/common';
+import { CartItem } from '../../interfaces/cart-item';
 
 @Component({
   selector: 'app-cart',
   standalone: true,
-  imports: [CurrencyPipe],
+  imports: [CurrencyPipe, JsonPipe],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.css'
 })
 export default class CartComponent {
 cartService=inject(CartService)
+cart=signal<CartItem[]>(this.cartService.cart())
 
-cart = this.cartService.cart();
   cartTotal = computed(() => {
-    return this.cart.reduce((acc, cartItem) => acc + cartItem.product.price! * cartItem.quantity, 0);
+    return this.cart().reduce((acc, cart) => acc + cart.product.price! * cart.quantity, 0);
   });
+
+  removeItem(id: number | undefined){
+    this.cartService.removeProductFromCart(id)
+    this.cart.set(this.cartService.cart())
+  }
 }

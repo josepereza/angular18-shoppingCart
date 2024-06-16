@@ -15,4 +15,21 @@ export class CartService {
     this.cart.update(cart => [...cart, cartItem]);
     console.log(this.cart())
   }
+
+  updateProductQuantity(productId: number, quantity: number) {
+    if (quantity === 0) {
+      this.removeProductFromCart(productId);
+      return;
+    }
+    this.cart.update(cart => cart.map(cartItem => {
+      if (cartItem.product.id === productId) {
+        cartItem.quantity = quantity;
+      }
+      return cartItem;
+    }));
+  }
+
+  removeProductFromCart(productId: number | undefined) {
+    this.cart.update(cart => cart.filter(cartItem => cartItem.product.id !== productId));
+  }
 }
