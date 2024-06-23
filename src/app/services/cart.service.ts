@@ -27,7 +27,7 @@ export class CartService {
      if (existingItem) {
        // Increment quantity if item already exists
        existingItem.quantity=existingItem.quantity + quantity ;
-       const cartItem: CartItem = {product, quantity};
+     
        return currentCart
              
        
