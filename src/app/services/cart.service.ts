@@ -1,4 +1,4 @@
-import { Injectable, signal } from '@angular/core';
+import { Injectable, computed, signal } from '@angular/core';
 import { Product } from '../interfaces/product';
 import { CartItem } from '../interfaces/cart-item';
 
@@ -28,7 +28,7 @@ export class CartService {
        // Increment quantity if item already exists
        existingItem.quantity=existingItem.quantity + quantity ;
      
-       return currentCart
+       return [...currentCart]
              
        
      } else {
@@ -43,6 +43,10 @@ export class CartService {
 
    
  } 
+
+ cartQuantity = computed(() => {
+  return this.cart().reduce((acc, cartItem: CartItem) => acc + cartItem.quantity, 0);
+}); 
 
   updateProductQuantity(productId: number, quantity: number) {
     if (quantity === 0) {

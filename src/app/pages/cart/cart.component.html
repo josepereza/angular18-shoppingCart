@@ -1,6 +1,6 @@
 <div>
     <h1>My Cart Shop</h1>
-  {{cart()| json}}
+ <span>Cantidad de productos : {{cartService.cartQuantity()}}</span>
     @if (cart().length === 0) {
       <p>Your cart is empty.</p>
     } @else {
