@@ -27,7 +27,7 @@ export class NavbarComponent {
       
     })
   }
-  cartQuantity = computed(() => {
+  /* cartQuantity = computed(() => {
     return this.cartService.cart().reduce((acc, cartItem: CartItem) => acc + cartItem.quantity, 0);
-  });
+  }); */
 }
